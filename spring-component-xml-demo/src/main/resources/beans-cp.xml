@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	default-destroy-method="preDestruct"
+	default-init-method="postConstruct"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+
+	<bean id="myorg"
+		class="com.adithya.springdemo.domain.Organization">
+		<constructor-arg value="Amazon" index="0"></constructor-arg>
+		<constructor-arg value="1994" index="1"></constructor-arg>
+		<property name="postalCode" value="560076"></property>
+		<property name="employeeCount" value="7500"></property>
+		<property name="service" ref="cloudService"></property>
+		<property name="slogan"
+			value="work hard,have fun,make history">
+		</property>
+	</bean>
+	<bean id="cloudService"
+		class="com.adithya.springdemo.serviceImpl.CloudServiceImpl">
+	</bean>
+	<bean id="ecommService"
+		class="com.adithya.springdemo.serviceImpl.EcommServiceImpl">
+	</bean>
+	<bean id="industrialproduct"
+		class="com.adithya.springdemo.domain.product.IndustrialClass">
+	</bean>
+	<bean id="consumerProduct"
+		class="com.adithya.springdemo.domain.product.ConsumerProduct">
+	</bean>
+	<bean id="TradeFair"
+		class="com.adithya.springdemo.domain.promotion.TradeFair">
+	</bean>
+	<context:annotation-config></context:annotation-config>
+	<context:component-scan
+		base-package="com.adithya.springdemo.domain">
+	</context:component-scan>
+</beans>
