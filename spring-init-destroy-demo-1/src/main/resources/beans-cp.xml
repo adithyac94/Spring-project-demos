@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-destroy-method="preDestruct"
+	default-init-method="postConstruct">
+
+
+	<bean id="myorg"
+		class="com.adithya.springdemo.domain.Organization">
+		<constructor-arg value="Amazon" index="0"></constructor-arg>
+		<constructor-arg value="1994" index="1"></constructor-arg>
+		<property name="postalCode" value="560076"></property>
+		<property name="employeeCount" value="7500"></property>
+		<property name="service" ref="cloudService"></property>
+		<property name="slogan"
+			value="work hard,have fun,make history">
+		</property>
+	</bean>
+	<bean id="cloudService"
+		class="com.adithya.springdemo.serviceImpl.CloudServiceImpl">
+	</bean>
+	<bean id="ecommService"
+		class="com.adithya.springdemo.serviceImpl.EcommServiceImpl">
+	</bean>
+</beans>
